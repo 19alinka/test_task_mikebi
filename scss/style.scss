@@ -1,0 +1,225 @@
+@import "reset.scss";
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+    --pink: #ffe5e5;
+    --pink2: #f4dbe1;
+    --gray: rgb(185, 185, 185);
+    --background-gray: #bdbdbe;
+    --gray2: #e7eaf3;
+    --button: #e9acba;
+}
+
+@mixin font($minf, $d) {
+    font-size: calc(#{$minf} + #{$d} * (100vw / 1366));
+}
+
+@mixin form($w, $minf, $d, $w2) {
+    width: $w;
+    height: 40px;
+    border-radius: 10px;
+    background-color: var(--gray2);
+    display: flex;
+    align-items: center;
+    @include font($minf, $d);
+    cursor: pointer;
+    @media (max-width: 545px) {
+        width: $w2;
+    }
+}
+
+@mixin hover {
+    &:hover {
+        background-color: var(--button);
+        transition: 0.5s;
+    }
+}
+
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+}
+
+.main__lines {
+    display: flex;
+    gap: 30px;
+}
+
+.line {
+    width: 60px;
+    height: 100vh;
+    background-color: var(--pink);
+}
+
+.block {
+    position: absolute;
+    width: 40%;
+    height: 15%;
+    background-color: var(--button);
+    bottom: 3%;
+    left: calc(50% - (40% / 2));
+    border-radius: 10px;
+    @include font(20px, 10);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 545px) {
+        width: 80%;
+        height: 10%;
+        left: calc(50% - (80% / 2));
+    }
+}
+
+.main__content {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+}
+
+.main__content {
+    display: grid;
+    grid-template-rows: 10% 80% 10%;
+    .user {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        .user-content {
+            width: 75px;
+        }
+        .p {
+            @include font(10px, 10);
+        }
+        .user-point::after {
+            content: "";
+            background-image: url(../img/coin.png);
+            background-size: cover;
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            margin-left: 5px;
+            @media (max-width: 545px) {
+                width: 15px;
+                height: 15px;
+            }
+        }
+    }
+    .question {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 40px;
+        position: relative;
+        &-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .question-p1 {
+                @include font(10px, 10);
+                margin-bottom: 7%;
+            }
+            .question-p2 {
+                @include font(20px, 10);
+                margin-bottom: calc(80% - 170px);
+            }
+            .question-img1 {
+                width: 130%;
+                @media (max-width: 545px) {
+                    width: 90%;
+                }
+            }
+        }
+        &-img {
+            background-color: var(--pink2);
+            border-radius: 3px;
+            box-shadow: 0px 3px 0px 0px var(--gray);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .question-img2 {
+                width: 25px;
+                height: 25px;
+                cursor: pointer;
+            }
+            .qm2 {
+                cursor: not-allowed;
+            }
+        }
+        .popup {
+            display: none;
+            position: absolute;
+            top: -10%;
+            right: calc(50% - (55% / 2));
+            width: 55%;
+            background-color: var(--background-gray);
+            border-radius: 15px;
+            padding: 10px 0 25px 0;
+            @media (max-width: 545px) {
+                top: 20%;
+            }
+            button {
+                width: 26px;
+                border-radius: 8px;
+                padding: 5px 0;
+                margin-left: calc(100% - 35px);
+                @include hover();
+                @media (max-width: 545px) {
+                    width: 22px;
+                }
+            }
+            p {
+                text-align: center;
+                @include font(15px, 10);
+            }
+        }
+        @media (max-width: 545px) {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 100px;
+            .question-content {
+                order: 3;
+                margin-top: -130px;
+            }
+        }
+
+    }
+    .answer {
+        position: relative;
+        &-content {
+            position: absolute;
+            display: flex;
+            justify-content: space-around;
+            padding: 15px;
+            gap: 15px;
+            background-color: var(--background-gray);
+            width: 111.5%;
+            left: -6%;
+            bottom: 0;
+            opacity: 0.7;
+            @media (max-width: 545px) {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+        }
+        &-label {
+            @include form(25%, 15px, 10, 30%);
+        }
+        &-input {
+            opacity: 0;
+            margin-left: calc(50% - 15px);
+        }
+        &-button{
+            @include form(10%, 8px, 10, 25%);
+            justify-content: center;
+            @include hover();
+        }
+    }
+
+}
+
+
+
+
