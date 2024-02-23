@@ -4,7 +4,7 @@
 :root {
     --pink: #ffe5e5;
     --pink2: #f4dbe1;
-    --gray: rgb(185, 185, 185);
+    --gray: rgb(165, 164, 164);
     --background-gray: #bdbdbe;
     --gray2: #e7eaf3;
     --button: #e9acba;
@@ -73,10 +73,10 @@
 }
 
 .main__content {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
+   /* position: absolute;*/
+    height: 100vh;
+   /* width: 100%;*/
+   /* top: 0;*/
 }
 
 .main__content {
@@ -109,7 +109,7 @@
     .question {
         display: flex;
         justify-content: space-between;
-        padding-top: 40px;
+        padding-top: 3%;
         position: relative;
         &-content {
             display: flex;
@@ -121,17 +121,24 @@
             }
             .question-p2 {
                 @include font(20px, 10);
-                margin-bottom: calc(80% - 170px);
+                margin-bottom: calc(40% - 170px);
+                @media (max-width: 545px) {
+                    margin-bottom: calc(50% - 170px);
+                }
+                @media (max-width: 375px) {
+                    margin-bottom: calc(60% - 150px);
+                }
             }
             .question-img1 {
-                width: 130%;
+               width: 130%;
                 @media (max-width: 545px) {
                     width: 90%;
                 }
             }
         }
         &-img {
-            background-color: var(--pink2);
+            background-color: var(--background-gray);
+            opacity: 0.6;/*var(--pink2);*/
             border-radius: 3px;
             box-shadow: 0px 3px 0px 0px var(--gray);
             width: 40px;
@@ -139,14 +146,24 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            cursor: pointer;
+            @include hover();
+            @media (max-width: 545px) {
+                width: 30px;
+                height: 30px;
+            }
             .question-img2 {
                 width: 25px;
                 height: 25px;
-                cursor: pointer;
+                /*cursor: pointer;*/
+                @media (max-width: 545px) {
+                    width: 20px;
+                    height: 20px;
+                }
             }
-            .qm2 {
-                cursor: not-allowed;
-            }
+        }
+        .qm2 {
+            cursor: not-allowed;
         }
         .popup {
             display: none;
@@ -181,7 +198,7 @@
             gap: 100px;
             .question-content {
                 order: 3;
-                margin-top: -130px;
+                margin-top: calc(-20% - 120px);
             }
         }
 
@@ -206,6 +223,7 @@
         }
         &-label {
             @include form(25%, 15px, 10, 30%);
+            @include hover();
         }
         &-input {
             opacity: 0;

@@ -1,5 +1,5 @@
 //Добавление линий на фоне
-const linesContainer = document.querySelector('.main__lines');
+/*const linesContainer = document.querySelector('.main__lines');
 let widthContainer = Math.floor(document.querySelector('.container').offsetWidth / 60);
 
 function createLines() {
@@ -16,7 +16,7 @@ createLines();
 window.addEventListener('resize', function() {
     widthContainer = Math.floor(document.querySelector('.container').offsetWidth / 60);
     createLines(); 
-});
+});*/
 
 
 //Выбор ответа
