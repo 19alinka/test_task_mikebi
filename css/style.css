@@ -394,8 +394,13 @@ h1, h2, h3, h4, h5, h6 {
     width: 25%;
   }
 }
-.main__content .answer-button:hover {
-  background-color: var(--button);
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+.main__content {
+  @media (hover: hover) {
+    .answer-button:hover {
+    background-color: var(--button);
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    }
+  }
 }
+
